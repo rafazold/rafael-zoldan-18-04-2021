@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,10 +8,11 @@ import Header from './components/Header.jsx';
 
 import routes from './routes.js';
 
-const App = () => (
-     
+const App = () => {
+const [dark, setDark] = useState(true)
+return (
   <Router >
-      <div className="w-screen mt-16 h-screen bg-black">
+      <div className={['w-screen', 'h-screen', dark && 'dark' ].filter(Boolean).join(' ')}>
       <Header />
         <Suspense
           fallback={<div className="font-bold text-xl p-4">Loading...</div>}
@@ -23,7 +24,7 @@ const App = () => (
           </Switch>
         </Suspense>
       </div>
-    </Router>
-);
+  </Router>
+)};
 
 export default App;
