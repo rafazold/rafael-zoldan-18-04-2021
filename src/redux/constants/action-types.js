@@ -1,0 +1,5 @@
+export const ActionTypes = {
+    SET_CITIES: "SET_CITIES",
+    SELECTED_CITY: "SELECTED_CITY",
+    SET_FIVE_DAY_FORECAST: "SET_FIVE_DAY_FORECAST",
+  };

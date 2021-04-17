@@ -1,0 +1,349 @@
+{
+    "select": [
+        {
+          "Version": 1,
+          "Key": "60974",
+          "Type": "City",
+          "Rank": 13,
+          "LocalizedName": "Mianyang",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "SC",
+            "LocalizedName": "Sichuan"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "28580",
+          "Type": "City",
+          "Rank": 20,
+          "LocalizedName": "Minsk",
+          "Country": {
+            "ID": "BY",
+            "LocalizedName": "Belarus"
+          },
+          "AdministrativeArea": {
+            "ID": "HM",
+            "LocalizedName": "Minsk City"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "214046",
+          "Type": "City",
+          "Rank": 21,
+          "LocalizedName": "Milan",
+          "Country": {
+            "ID": "IT",
+            "LocalizedName": "Italy"
+          },
+          "AdministrativeArea": {
+            "ID": "25",
+            "LocalizedName": "Lombardy"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "60811",
+          "Type": "City",
+          "Rank": 25,
+          "LocalizedName": "Minhang District",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "SH",
+            "LocalizedName": "Shanghai"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "218223",
+          "Type": "City",
+          "Rank": 31,
+          "LocalizedName": "Mito-shi",
+          "Country": {
+            "ID": "JP",
+            "LocalizedName": "Japan"
+          },
+          "AdministrativeArea": {
+            "ID": "08",
+            "LocalizedName": "Ibaraki"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "224686",
+          "Type": "City",
+          "Rank": 31,
+          "LocalizedName": "Miyazaki-shi",
+          "Country": {
+            "ID": "JP",
+            "LocalizedName": "Japan"
+          },
+          "AdministrativeArea": {
+            "ID": "45",
+            "LocalizedName": "Miyazaki"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "229227",
+          "Type": "City",
+          "Rank": 31,
+          "LocalizedName": "Misrata",
+          "Country": {
+            "ID": "LY",
+            "LocalizedName": "Libya"
+          },
+          "AdministrativeArea": {
+            "ID": "MI",
+            "LocalizedName": "Misrata"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "224030",
+          "Type": "City",
+          "Rank": 32,
+          "LocalizedName": "Michuhol-gu",
+          "Country": {
+            "ID": "KR",
+            "LocalizedName": "South Korea"
+          },
+          "AdministrativeArea": {
+            "ID": "28",
+            "LocalizedName": "Incheon"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "59119",
+          "Type": "City",
+          "Rank": 33,
+          "LocalizedName": "Mianchi County",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "HA",
+            "LocalizedName": "Henan"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "60469",
+          "Type": "City",
+          "Rank": 33,
+          "LocalizedName": "Mian County",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "SN",
+            "LocalizedName": "Shaanxi"
+          }
+        }
+      ],
+    "single": [
+        {
+          "LocalObservationDateTime": "2021-04-17T16:41:00+03:00",
+          "EpochTime": 1618666860,
+          "WeatherText": "Mostly sunny",
+          "WeatherIcon": 2,
+          "HasPrecipitation": false,
+          "PrecipitationType": null,
+          "IsDayTime": true,
+          "Temperature": {
+            "Metric": {
+              "Value": 26.6,
+              "Unit": "C",
+              "UnitType": 17
+            },
+            "Imperial": {
+              "Value": 80,
+              "Unit": "F",
+              "UnitType": 18
+            }
+          },
+          "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us",
+          "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us"
+        }
+      ],
+    "daily": {
+        "Headline": {
+          "EffectiveDate": "2021-04-19T08:00:00+03:00",
+          "EffectiveEpochDate": 1618808400,
+          "Severity": 5,
+          "Text": "Possible danger of dehydration and heat stroke while doing strenuous activities Monday",
+          "Category": "heat",
+          "EndDate": "2021-04-19T20:00:00+03:00",
+          "EndEpochDate": 1618851600,
+          "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/extended-weather-forecast/215854?unit=c&lang=en-us",
+          "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?unit=c&lang=en-us"
+        },
+        "DailyForecasts": [
+          {
+            "Date": "2021-04-17T07:00:00+03:00",
+            "EpochDate": 1618632000,
+            "Temperature": {
+              "Minimum": {
+                "Value": 17.7,
+                "Unit": "C",
+                "UnitType": 17
+              },
+              "Maximum": {
+                "Value": 28.6,
+                "Unit": "C",
+                "UnitType": 17
+              }
+            },
+            "Day": {
+              "Icon": 1,
+              "IconPhrase": "Sunny",
+              "HasPrecipitation": false
+            },
+            "Night": {
+              "Icon": 33,
+              "IconPhrase": "Clear",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=1&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=1&unit=c&lang=en-us"
+          },
+          {
+            "Date": "2021-04-18T07:00:00+03:00",
+            "EpochDate": 1618718400,
+            "Temperature": {
+              "Minimum": {
+                "Value": 20.8,
+                "Unit": "C",
+                "UnitType": 17
+              },
+              "Maximum": {
+                "Value": 30.4,
+                "Unit": "C",
+                "UnitType": 17
+              }
+            },
+            "Day": {
+              "Icon": 1,
+              "IconPhrase": "Sunny",
+              "HasPrecipitation": false
+            },
+            "Night": {
+              "Icon": 36,
+              "IconPhrase": "Intermittent clouds",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=2&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=2&unit=c&lang=en-us"
+          },
+          {
+            "Date": "2021-04-19T07:00:00+03:00",
+            "EpochDate": 1618804800,
+            "Temperature": {
+              "Minimum": {
+                "Value": 22.2,
+                "Unit": "C",
+                "UnitType": 17
+              },
+              "Maximum": {
+                "Value": 34.8,
+                "Unit": "C",
+                "UnitType": 17
+              }
+            },
+            "Day": {
+              "Icon": 4,
+              "IconPhrase": "Intermittent clouds",
+              "HasPrecipitation": false
+            },
+            "Night": {
+              "Icon": 35,
+              "IconPhrase": "Partly cloudy",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=3&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=3&unit=c&lang=en-us"
+          },
+          {
+            "Date": "2021-04-20T07:00:00+03:00",
+            "EpochDate": 1618891200,
+            "Temperature": {
+              "Minimum": {
+                "Value": 15.5,
+                "Unit": "C",
+                "UnitType": 17
+              },
+              "Maximum": {
+                "Value": 26.8,
+                "Unit": "C",
+                "UnitType": 17
+              }
+            },
+            "Day": {
+              "Icon": 4,
+              "IconPhrase": "Intermittent clouds",
+              "HasPrecipitation": false
+            },
+            "Night": {
+              "Icon": 33,
+              "IconPhrase": "Clear",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=4&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=4&unit=c&lang=en-us"
+          },
+          {
+            "Date": "2021-04-21T07:00:00+03:00",
+            "EpochDate": 1618977600,
+            "Temperature": {
+              "Minimum": {
+                "Value": 15.6,
+                "Unit": "C",
+                "UnitType": 17
+              },
+              "Maximum": {
+                "Value": 23.9,
+                "Unit": "C",
+                "UnitType": 17
+              }
+            },
+            "Day": {
+              "Icon": 6,
+              "IconPhrase": "Mostly cloudy",
+              "HasPrecipitation": false
+            },
+            "Night": {
+              "Icon": 35,
+              "IconPhrase": "Partly cloudy",
+              "HasPrecipitation": false
+            },
+            "Sources": [
+              "AccuWeather"
+            ],
+            "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=5&unit=c&lang=en-us",
+            "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/daily-weather-forecast/215854?day=5&unit=c&lang=en-us"
+          }
+        ]
+      }
+}
