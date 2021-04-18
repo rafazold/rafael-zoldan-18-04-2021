@@ -7,9 +7,9 @@ import WeatherCards from './WeatherCards.jsx';
 const daily = data.daily;
 const single = data.single;
 
-const WeekSummary = () => (
-    <div className='comp-weekly-summary container mx-auto mt-10' >
-        <header className='container flex justify-between items-center text-white'>
+const WeekSummary = ({city, cityDetails=single, dataList=daily, liked}) => (
+    <div className='comp-weekly-summary container mx-auto mt-10 text-gray-900 dark:text-white' >
+        <header className='flex  mx-auto justify-between items-center text-white'>
             <div className='flex'>
                 <img src="" alt="sunny"/>
                 <div className=''>
@@ -17,13 +17,13 @@ const WeekSummary = () => (
                     <div>temp</div>
                 </div>
             </div>
-            <div>
-                <AiFillHeart color={'white'} />
-                <button onClick={() => undefined}>Add to Favorites</button>
-            </div>
+                <button className='flex' onClick={() => undefined}>
+                    <AiFillHeart color={liked ? 'red' : 'white'} className='w-6 h-6 mr-2'/> 
+                    Add/Remove Favorites
+                </button>
         </header>
-        <div className='text-white text-5xl text-center my-14'>{single[0].WeatherText}</div>
-        <WeatherCards daily={daily.DailyForecasts} />
+        <div className='text-5xl text-center my-14'>{cityDetails[0].WeatherText}</div>
+        <WeatherCards daily={dataList.DailyForecasts} />
     </div>
 );
 

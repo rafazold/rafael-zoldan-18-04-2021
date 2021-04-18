@@ -9,10 +9,10 @@ import Header from './components/Header.jsx';
 import routes from './routes.js';
 
 const App = () => {
-const [dark, setDark] = useState(true)
+const [dark, setDark] = useState(false)
 return (
   <Router >
-      <div className={['w-screen', 'h-screen', dark && 'dark' ].filter(Boolean).join(' ')}>
+      <div className={['w-screen', 'min-h-screen', dark && 'dark' ].filter(Boolean).join(' ')}>
       <Header />
         <Suspense
           fallback={<div className="font-bold text-xl p-4">Loading...</div>}

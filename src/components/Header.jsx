@@ -4,10 +4,10 @@ import {NavLink} from 'react-router-dom'
 import Toggle from './Toggle.jsx';
 
 const Header = () => (
-  <header className="comp-header w-full fixed top-0 flex items-center h-20 z-100 bg-gray-300 dark:text-white dark:bg-gray-900">
-    <div className="container mx-auto flex justify-between items-center">
+  <header className="comp-header w-full lg:fixed top-0 left-0 flex items-center h-20 z-100 bg-gray-300 dark:text-white dark:bg-gray-900">
+    <div className="mx-auto container flex justify-between items-center">
       <NavLink to="/" activeClassName='flex items-center text-3xl'>
-        <div className='text-3xl mr-6 font-bold'>Weather App</div>
+        <div className='hidden lg:block text-3xl mr-6 font-bold'>Weather App</div>
         <img src={logo} alt="Logo" className='h-14 my-auto' />
       </NavLink>
       <div className='flex'>
