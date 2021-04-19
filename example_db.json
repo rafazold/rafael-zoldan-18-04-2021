@@ -151,7 +151,7 @@
     }
   }
 ],
-    "single": [
+  "single": [
       {
         "LocalObservationDateTime": "2021-04-17T16:41:00+03:00",
         "EpochTime": 1618666860,
@@ -245,7 +245,7 @@
         "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us"
       }
    ],
-    "daily": {
+  "daily": {
         "Headline": {
           "EffectiveDate": "2021-04-19T08:00:00+03:00",
           "EffectiveEpochDate": 1618808400,

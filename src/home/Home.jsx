@@ -13,7 +13,7 @@ const Home = () => {
     // alert(searchValue)
   }
   return (
-  <div className='comp-home bg-gray-400 dark:bg-gray-800 py-20 h-full'>
+  <div className='comp-home bg-gray-400 dark:bg-gray-800 py-20 h-screen'>
       <h1 className="text-6xl text-center mt-8 dark:text-white">
         Weather App
       </h1>
