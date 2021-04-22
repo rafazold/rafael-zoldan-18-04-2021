@@ -1,23 +1,21 @@
-import { ActionTypes } from "../constants/action-types";
-const intialState = {
+import { ActionTypes } from '../constants/action-types';
+const initialState = {
   cities: [],
-  selectedCity: ''
+  selectedCity: '',
+  fiveDayForecast: [],
+  availableCities: {},
+  cityIds: {
+    215854: 'tel-aviv',
+    'tel-aviv': 215854,
+  },
 };
 
-export const citiesReducer = (state = intialState.cities, { type, payload }) => {
+export const weatherReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ActionTypes.SET_CITIES:
-      return { ...state, cities: payload };
-    default:
-      return state;
-  }
-};
-
-export const selectedCityReducer = (state = intialState.selectedCity, { type, payload }) => {
-  // console.log(type);
-  switch (type) {
-    case ActionTypes.SELECTED_CITY:
-      return { ...state, ...payload };
+    case ActionTypes.SET_SELECTED_CITY:
+      return { ...state, selectedCity: payload };
+    case ActionTypes.ADD_CITY_ID:
+      return { ...state.cityIds, ...payload };
     default:
       return state;
   }

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const Toggle = ({ className, leftText, rightText }, ...props) => {
-  const [active, setActive] = useState(false);
-
+const Toggle = ({ active, className, leftText, rightText, ...props }) => {
   return (
     <button
       className={[
@@ -15,7 +13,7 @@ const Toggle = ({ className, leftText, rightText }, ...props) => {
         'items-center',
         active && 'flex-row-reverse',
         'transition-all',
-        'duration-200',
+        'duration-75',
         'focus:outline-none',
         className,
       ]
