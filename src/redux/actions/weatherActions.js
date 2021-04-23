@@ -1,33 +1,32 @@
-import { ActionTypes } from '../constants/action-types';
+import * as actionTypes from '../constants/actionTypes';
 
-export const addCityId = (city) => {
+export const setLocationWeather = (location) => {
   return {
-    type: ActionTypes.ADD_CITY_ID,
-    payload: city,
+    type: actionTypes.SET_CURRENT_LOCATION_WEATHER,
+    payload: location,
   };
 };
-export const setCities = (cities) => {
+export const setLocationForecast = (forecast) => {
   return {
-    type: ActionTypes.SET_CITIES,
-    payload: cities,
-  };
-};
-
-export const setSelectedCity = (city) => {
-  return {
-    type: ActionTypes.SET_SELECTED_CITY,
-    payload: city,
-  };
-};
-export const setFiveDayForecast = (forecast) => {
-  return {
-    type: ActionTypes.SET_FIVE_DAY_FORECAST,
+    type: actionTypes.SET_LOCATION_FORECAST,
     payload: forecast,
   };
 };
 export const setAvailableCities = (forecast) => {
   return {
-    type: ActionTypes.SET_AVAILABLE_CITIES,
+    type: actionTypes.SET_AVAILABLE_CITIES,
     payload: forecast,
+  };
+};
+export const setCities = (cities) => {
+  return {
+    type: actionTypes.SET_CITY_ID_MAP,
+    payload: cities,
+  };
+};
+export const addCityId = (city) => {
+  return {
+    type: actionTypes.ADD_CITY_ID,
+    payload: city,
   };
 };

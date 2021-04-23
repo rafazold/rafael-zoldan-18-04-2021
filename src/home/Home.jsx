@@ -41,7 +41,7 @@ const Home = () => {
   };
 
   return (
-    <div className="comp-home bg-gray-400 dark:bg-gray-800 py-20 h-screen">
+    <div className="comp-home overflow-auto bg-gray-400 dark:bg-gray-800 py-20 h-screen">
       <h1 className="text-6xl text-center mt-8 dark:text-white">Weather App</h1>
       <form className="text-center mt-8" onSubmit={handleSubmit}>
         <label className="relative">

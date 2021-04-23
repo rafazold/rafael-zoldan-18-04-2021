@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes.js';
 import Header from './components/Header.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSelectedCity } from './redux/actions/weatherActions';
+import { setLocationWeather } from './redux/actions/weatherActions';
 
 const App = () => {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.preferences.mode);
   const setGeoLocation = () => {
-    console.log('starting');
     const options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -22,10 +21,10 @@ const App = () => {
       };
       window.localStorage.getItem('loc') !== JSON.stringify(loc) &&
         window.localStorage.setItem('loc', JSON.stringify(loc));
-      dispatch(setSelectedCity('215854'));
+      dispatch(setLocationWeather(''));
     };
     const error = () => {
-      dispatch(setSelectedCity(215854));
+      dispatch(setLocationWeather(215854));
     };
     navigator.geolocation.getCurrentPosition(success, error, options);
   };

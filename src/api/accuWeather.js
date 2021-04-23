@@ -4,10 +4,10 @@ export const accuWeather = axios.create({
   baseURL: process.env.API_BASE_URL,
 });
 
-export const accuWeatherRoutes = {
+export const weatherRoutes = {
   AUTOCOMPLETE: '/locations/v1/cities/autocomplete', // params: apikey, q
   SEARCH: '/locations/v1/cities/search', // params: apikey, q
   GEOPOSITION: '/locations/v1/cities/geoposition/search', // params: apikey, q=lat,lon
   CURRENT_WEATHER: '/currentconditions/v1/', // params: locationKey, metric(bool)
-  FORECAST: '/forecasts/v1/daily/5day/', // params: locationKey, metric(bool)
+  DAILY: '/forecasts/v1/daily/5day/', // params: locationKey, metric(bool)
 };

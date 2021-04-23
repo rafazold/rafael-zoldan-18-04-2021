@@ -10,15 +10,17 @@ const single = data.single;
 const WeekSummary = ({ cityDetails, dataList = daily, liked }) => {
   // console.log();
   // debugger;
-  const cityIds = useSelector((state) => state.cityIds);
-  const selectedCity = useSelector((state) => state.selectedCity);
+  const cityIds = useSelector((state) => state.weather.cityIds);
+  const selectedCity = useSelector(
+    (state) => cityIds[state.preferences.selectedLocation]
+  );
   // debugger;
   return (
     <div className="comp-week-summary container mx-auto mt-10 text-gray-900 bg-gray-400 dark:bg-gray-800 dark:text-white">
       <header className="flex  mx-auto justify-around items-center text-white">
         <div className="flex">
           <img src="" alt="" />
-          <div className="TEST">
+          <div>
             TEST {selectedCity}
             {selectedCity && <div>{'selectedCity'}</div>}
             <div>
