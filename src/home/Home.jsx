@@ -45,7 +45,7 @@ const Home = () => {
     ) {
       setLoading(false);
     } else {
-      dispatch(setCurrentLocationWeather(215854));
+      dispatch(setCurrentLocationWeather(215854, 'Tel-Aviv'));
       // setSelectedDetails(available[selected]);
       setLoading(false);
     }

@@ -41,7 +41,7 @@ const WeekSummary = ({ dataList = daily }) => {
       setLoading(false);
     } else {
       if (Object.keys(selectedCity).length) {
-        dispatch(setCurrentLocationWeather(selectedCity.id));
+        dispatch(setCurrentLocationWeather(selectedCity.id, selectedCity.name));
         setLoading(false);
       }
     }

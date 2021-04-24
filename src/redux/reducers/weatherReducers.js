@@ -1,7 +1,7 @@
 import {
   SET_CURRENT_LOCATION_WEATHER,
   SET_LOCATION_FORECAST,
-  SET_AVAILABLE_CITIES,
+  ADD_AVAILABLE_CITY,
   SET_CITY_ID_MAP,
   ADD_CITY_ID,
   SET_CURRENT_CITY,
@@ -24,8 +24,8 @@ export const weatherReducer = (state = initialState, { type, payload }) => {
       return { ...state, currentLocationWeather: payload };
     case SET_LOCATION_FORECAST:
       return { ...state, locationForecast: payload };
-    case SET_AVAILABLE_CITIES:
-      return { ...state, availableCities: payload };
+    case ADD_AVAILABLE_CITY:
+      return { ...state, availableCities: { [payload.id]: payload.data } };
     case SET_CITY_ID_MAP:
       return { ...state, citiesMap: payload };
     case ADD_CITY_ID:

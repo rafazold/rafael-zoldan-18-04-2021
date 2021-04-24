@@ -34,7 +34,10 @@ export const setIdFromLocation = (location) => (dispatch) => {
       })
     );
 };
-export const setCurrentLocationWeather = (location) => (dispatch) => {
+export const setCurrentLocationWeather = (locationId, locationName) => (
+  dispatch
+) => {
+  let locationWeather = {};
   accuWeather
     .get(weatherRoutes.CURRENT_WEATHER, {
       params: {
@@ -42,10 +45,17 @@ export const setCurrentLocationWeather = (location) => (dispatch) => {
       },
     })
     .then((res) => {
+      locationWeather.data = res.data[0];
+      locationWeather.data.name = locationName;
+      locationWeather.data.id = locationId;
+      locationWeather.id = locationId;
       dispatch({
         type: actionTypes.SET_CURRENT_LOCATION_WEATHER,
         payload: res.data[0],
       });
+    })
+    .then(() => {
+      return dispatch(addAvailableCity(locationWeather));
     });
 };
 
@@ -70,10 +80,10 @@ export const setLocationForecast = (location) => (dispatch) => {
       });
     });
 };
-export const setAvailableCities = (forecast) => {
+export const addAvailableCity = (cityWeather) => {
   return {
-    type: actionTypes.SET_AVAILABLE_CITIES,
-    payload: forecast,
+    type: actionTypes.ADD_AVAILABLE_CITY,
+    payload: cityWeather,
   };
 };
 export const setCities = (cities) => {
