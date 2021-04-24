@@ -21,12 +21,18 @@ export const setFavorites = (favorites) => {
   };
 };
 export const addFavorite = (city) => {
+  const currentFavorites = window.localStorage.getItem('favorites') || [];
+  const favorites = [...currentFavorites, city];
+  window.localStorage.setItem('favorites', JSON.stringify(favorites));
   return {
     type: actionTypes.ADD_FAVORITE_CITY,
     payload: city,
   };
 };
 export const removeFavorite = (city) => {
+  const currentFavorites = window.localStorage.getItem('favorites');
+  const favorites = [...currentFavorites].filter((fav) => fav !== city);
+  window.localStorage.setItem('favorites', JSON.stringify(favorites));
   return {
     type: actionTypes.REMOVE_FAVORITE_CITY,
     payload: city,

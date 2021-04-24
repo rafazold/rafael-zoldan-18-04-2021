@@ -10,7 +10,7 @@ import {
 const initialState = {
   mode: window.localStorage.getItem('mode') || 'dark',
   units: window.localStorage.getItem('units') || 'metric',
-  favorites: [],
+  favorites: window.localStorage.getItem('favorites') || [],
   selectedLocation: window.localStorage.getItem('location') || '215854',
 };
 
@@ -21,6 +21,7 @@ export const preferenceReducer = (state = initialState, { type, payload }) => {
     case SET_UNITS:
       return { ...state, units: payload };
     case SET_FAVORITES:
+      console.log(state.favorites);
       return { ...state, favorites: [...state.favorites, payload] };
     case ADD_FAVORITE_CITY:
       return { ...state, favorites: [...state.favorites, payload] };
