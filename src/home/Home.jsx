@@ -1,34 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import WeekSummary from '../components/WeekSummary.jsx';
 import search from '../images/search.png';
-import { useSelector } from 'react-redux';
-import axios from 'axios';
-import data from '../../example_db.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedLocation } from '../redux/actions/preferenceActions';
+import {
+  setCurrentCity,
+  setCurrentLocationWeather,
+  setIdFromLocation,
+} from '../redux/actions/weatherActions';
 
 const Home = () => {
-  // tlv ' 215854'
-  const baseUrl = 'http://dataservice.accuweather.com';
-  const selected =
-    useSelector((state) => state.preferences.selectedCity) || '215854';
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => state.weather.currentCity);
   const available = useSelector((state) => state.preferences.availableCities);
-  const [selectedDetails, setSelectedDetails] = useState({});
   const [loading, setLoading] = useState(true);
+  const setGeoLocation = () => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    const success = (pos) => {
+      const loc = {
+        lat: pos.coords.latitude,
+        lon: pos.coords.longitude,
+      };
+      window.localStorage.getItem('loc') !== JSON.stringify(loc) &&
+        window.localStorage.setItem('loc', JSON.stringify(loc));
+      dispatch(setIdFromLocation(`${loc.lat},${loc.lon}`));
+    };
+    const error = () => {
+      dispatch(setCurrentCity({ id: '215854', name: 'Tel-Aviv' }));
+    };
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  };
+
+  useEffect(() => {
+    setGeoLocation();
+  }, []);
   useEffect(() => {
     if (
-      Object(available).keys === undefined ||
-      !Object(available).keys.includes(selected)
+      Object(available).keys !== undefined &&
+      Object(available).keys.includes(selected)
     ) {
-      // axios
-      // .get(
-      //   `${baseUrl}/currentconditions/v1/${selected}?apikey=${process.env.AW_API}`
-      // )
-      // .then((res) => {
-      //   setSelectedDetails(res.data[0]);
       setLoading(false);
-      // });
     } else {
-      setSelectedDetails(available[selected]);
-      setLoading(true);
+      dispatch(setCurrentLocationWeather(215854));
+      // setSelectedDetails(available[selected]);
+      setLoading(false);
     }
   }, [available, selected]);
   const [searchValue, setSearchValue] = useState('');
@@ -57,7 +76,7 @@ const Home = () => {
           </button>
         </label>
       </form>
-      {loading ? 'Loading...' : <WeekSummary />}
+      {selected !== undefined && <WeekSummary />}
     </div>
   );
 };

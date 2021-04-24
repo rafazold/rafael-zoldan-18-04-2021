@@ -2,35 +2,10 @@ import React, { Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import routes from './routes.js';
 import Header from './components/Header.jsx';
-import { useSelector, useDispatch } from 'react-redux';
-import { setLocationWeather } from './redux/actions/weatherActions';
+import { useSelector } from 'react-redux';
 
 const App = () => {
-  const dispatch = useDispatch();
   const mode = useSelector((state) => state.preferences.mode);
-  const setGeoLocation = () => {
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
-    };
-    const success = (pos) => {
-      const loc = {
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude,
-      };
-      window.localStorage.getItem('loc') !== JSON.stringify(loc) &&
-        window.localStorage.setItem('loc', JSON.stringify(loc));
-      dispatch(setLocationWeather(''));
-    };
-    const error = () => {
-      dispatch(setLocationWeather(215854));
-    };
-    navigator.geolocation.getCurrentPosition(success, error, options);
-  };
-  useEffect(() => {
-    setGeoLocation();
-  }, []);
   return (
     <Router>
       <div
