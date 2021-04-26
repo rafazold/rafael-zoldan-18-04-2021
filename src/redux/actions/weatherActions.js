@@ -1,30 +1,22 @@
 import * as actionTypes from '../constants/actionTypes';
 import { accuWeather, weatherRoutes } from '../../api/accuWeather';
-import { createError } from '../../helpers';
-import { ADD_CITY_ID } from '../constants/actionTypes';
 
 export const setIdFromLocation = (location) => (dispatch) => {
-  let passedCity;
+  let locatedCity;
   accuWeather
     .get(weatherRoutes.GEOPOSITION, {
       params: {
         apikey: process.env.AW_API_KEY,
-        // q: location,
+        q: location,
       },
     })
     .then((res) => {
       const id = res.data[0].Key;
       const name = res.data[0].EnglishName;
-      passedCity = { id, name };
+      locatedCity = { id, name };
       return dispatch({
         type: actionTypes.SET_CURRENT_CITY,
-        payload: passedCity,
-      });
-    })
-    .then(() => {
-      return dispatch({
-        type: ADD_CITY_ID,
-        payload: passedCity,
+        payload: locatedCity,
       });
     })
     .catch(() =>
@@ -39,7 +31,7 @@ export const setCurrentLocationWeather = (locationId, locationName) => (
 ) => {
   let locationWeather = {};
   accuWeather
-    .get(weatherRoutes.CURRENT_WEATHER, {
+    .get(weatherRoutes.CURRENT_WEATHER + locationId, {
       params: {
         apikey: process.env.AW_API_KEY,
       },
@@ -55,7 +47,7 @@ export const setCurrentLocationWeather = (locationId, locationName) => (
       });
     })
     .then(() => {
-      return dispatch(addAvailableCity(locationWeather));
+      dispatch(addAvailableCity(locationWeather));
     });
 };
 
@@ -68,9 +60,10 @@ export const setCurrentCity = (location) => {
 
 export const setLocationForecast = (location) => (dispatch) => {
   accuWeather
-    .get(weatherRoutes.DAILY, {
+    .get(weatherRoutes.DAILY + location, {
       params: {
         apikey: process.env.AW_API_KEY,
+        metric: true,
       },
     })
     .then((res) => {
@@ -84,17 +77,5 @@ export const addAvailableCity = (cityWeather) => {
   return {
     type: actionTypes.ADD_AVAILABLE_CITY,
     payload: cityWeather,
-  };
-};
-export const setCities = (cities) => {
-  return {
-    type: actionTypes.SET_CITY_ID_MAP,
-    payload: cities,
-  };
-};
-export const addCityId = (city) => {
-  return {
-    type: actionTypes.ADD_CITY_ID,
-    payload: city,
   };
 };

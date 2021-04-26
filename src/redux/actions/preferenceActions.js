@@ -7,43 +7,24 @@ export const setDarkMode = (mode) => {
   };
 };
 
-export const setUnits = (units) => {
-  return {
-    type: actionTypes.SET_UNITS,
-    payload: units,
-  };
-};
-
-export const setFavorites = (favorites) => {
-  return {
-    type: actionTypes.SET_FAVORITES,
-    payload: favorites,
-  };
-};
-export const addFavorite = (city) => {
+export const addFavorite = ({ id, name }) => {
   const currentFavorites =
     JSON.parse(window.localStorage.getItem('favorites')) || [];
-  const favorites = [...currentFavorites, city];
+  const favorites = [...currentFavorites, { id, name }];
   window.localStorage.setItem('favorites', JSON.stringify(favorites));
   return {
     type: actionTypes.ADD_FAVORITE_CITY,
-    payload: city,
+    payload: { id, name },
   };
 };
 export const removeFavorite = (city) => {
   const currentFavorites = JSON.parse(window.localStorage.getItem('favorites'));
-  const favorites = [...currentFavorites].filter((fav) => fav !== city);
+  const favorites = [...currentFavorites].filter((fav) => fav.id !== city.id);
   favorites === []
     ? window.localStorage.removeItem(key)
     : window.localStorage.setItem('favorites', JSON.stringify(favorites));
   return {
     type: actionTypes.REMOVE_FAVORITE_CITY,
     payload: city,
-  };
-};
-export const setSelectedLocation = (location) => {
-  return {
-    type: actionTypes.SET_SELECTED_LOCATION,
-    payload: location,
   };
 };

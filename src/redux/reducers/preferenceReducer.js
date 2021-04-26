@@ -1,16 +1,14 @@
 import {
   SET_DARK_MODE,
   SET_UNITS,
-  SET_FAVORITES,
   ADD_FAVORITE_CITY,
   REMOVE_FAVORITE_CITY,
-  SET_SELECTED_LOCATION,
 } from '../constants/actionTypes';
 
 const initialState = {
   mode: window.localStorage.getItem('mode') || 'dark',
   units: window.localStorage.getItem('units') || 'metric',
-  favorites: window.localStorage.getItem('favorites') || [],
+  favorites: JSON.parse(window.localStorage.getItem('favorites')) || [],
   selectedLocation: window.localStorage.getItem('location') || '215854',
 };
 
@@ -20,20 +18,14 @@ export const preferenceReducer = (state = initialState, { type, payload }) => {
       return { ...state, mode: payload };
     case SET_UNITS:
       return { ...state, units: payload };
-    case SET_FAVORITES:
-      console.log(state.favorites);
-      return { ...state, favorites: [...state.favorites, payload] };
     case ADD_FAVORITE_CITY:
       return { ...state, favorites: [...state.favorites, payload] };
     case REMOVE_FAVORITE_CITY:
       return {
         ...state,
-        favorites: state.favorites.filter((city) => city !== payload),
-      };
-    case SET_SELECTED_LOCATION:
-      return {
-        ...state,
-        selectedLocation: payload,
+        favorites: [...state.favorites].filter(
+          (city) => city.id !== payload.id
+        ),
       };
     default:
       return state;
