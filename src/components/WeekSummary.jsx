@@ -11,6 +11,7 @@ import {
   addFavorite,
   removeFavorite,
 } from '../redux/actions/preferenceActions';
+import { toast } from 'react-toastify';
 
 const WeekSummary = () => {
   const [loading, setLoading] = useState(true);
@@ -40,13 +41,27 @@ const WeekSummary = () => {
       setLoading(false);
     } else {
       if (Object.keys(selectedCity).length) {
-        dispatch(setCurrentLocationWeather(selectedCity.id, selectedCity.name));
+        try {
+          dispatch(
+            setCurrentLocationWeather(selectedCity.id, selectedCity.name)
+          );
+        } catch {
+          toast.warn('something went wrong, please reload', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        }
       }
     }
   }, [selectedCity, available]);
   useEffect(() => {
     if (Object.keys(selectedCity).length) {
-      dispatch(setLocationForecast(selectedCity.id));
+      try {
+        dispatch(setLocationForecast(selectedCity.id));
+      } catch {
+        toast.warn('something went wrong, please reload', {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
+      }
     }
   }, [selectedCity]);
   return (

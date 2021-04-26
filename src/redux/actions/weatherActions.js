@@ -1,5 +1,6 @@
 import * as actionTypes from '../constants/actionTypes';
 import { accuWeather, weatherRoutes } from '../../api/accuWeather';
+import { toast } from 'react-toastify';
 
 export const setIdFromLocation = (location) => (dispatch) => {
   let locatedCity;
@@ -19,12 +20,12 @@ export const setIdFromLocation = (location) => (dispatch) => {
         payload: locatedCity,
       });
     })
-    .catch(() =>
-      dispatch({
+    .catch(() => {
+      return dispatch({
         type: actionTypes.SET_CURRENT_CITY,
         payload: { id: '215854', name: 'Tel-Aviv' },
-      })
-    );
+      });
+    });
 };
 export const setCurrentLocationWeather = (locationId, locationName) => (
   dispatch
@@ -48,7 +49,12 @@ export const setCurrentLocationWeather = (locationId, locationName) => (
     })
     .then(() => {
       dispatch(addAvailableCity(locationWeather));
-    });
+    })
+    .catch(() =>
+      toast.warn('Something went wrong, please reload', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      })
+    );
 };
 
 export const setCurrentCity = (location) => {
@@ -71,7 +77,12 @@ export const setLocationForecast = (location) => (dispatch) => {
         type: actionTypes.SET_LOCATION_FORECAST,
         payload: res.data,
       });
-    });
+    })
+    .catch(() =>
+      toast.success('Please try again and reload...', {
+        position: toast.POSITION.TOP_CENTER,
+      })
+    );
 };
 export const addAvailableCity = (cityWeather) => {
   return {

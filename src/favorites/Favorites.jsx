@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FavoriteCards from '../components/FavoriteCards.jsx';
 import { useSelector } from 'react-redux';
 import { accuWeather, weatherRoutes } from '../api/accuWeather';
+import { toast } from 'react-toastify';
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.preferences.favorites);
@@ -17,10 +18,16 @@ const Favorites = () => {
       })
     );
     cityWeatherRequests.length &&
-      Promise.all(cityWeatherRequests).then((res) => {
-        setCitiesArr(res);
-        setLoading(false);
-      });
+      Promise.all(cityWeatherRequests)
+        .then((res) => {
+          setCitiesArr(res);
+          setLoading(false);
+        })
+        .catch(() =>
+          toast.warn('something went wrong, please reload', {
+            position: toast.POSITION.BOTTOM_RIGHT,
+          })
+        );
   }, [favorites, available]);
   return (
     <div className="pt-20 bg-gray-400 dark:bg-gray-800 h-screen">
