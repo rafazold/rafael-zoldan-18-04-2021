@@ -11,14 +11,14 @@ const context = resolve(__dirname, 'src');
 module.exports = {
   output: {
     publicPath,
-    path: resolve(__dirname, 'dist'),
+    path: resolve(__dirname, 'dist/'),
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        include: [context],
+        include: context,
         options: {
           presets: ['@babel/preset-react'],
           plugins: [
