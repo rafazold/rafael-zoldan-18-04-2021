@@ -1,5 +1,5 @@
 require('dotenv/config');
-
+const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const { resolve } = require('path');
@@ -20,9 +20,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [context],
         options: {
-          presets: [
-            '@babel/preset-react',
-          ],
+          presets: ['@babel/preset-react'],
           plugins: [
             [
               '@babel/transform-runtime',
@@ -55,6 +53,11 @@ module.exports = {
         viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
       },
       title: 'Weather App',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      },
     }),
   ],
   devtool: 'eval-source-map',
