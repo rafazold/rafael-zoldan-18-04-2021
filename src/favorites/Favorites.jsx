@@ -24,9 +24,12 @@ const Favorites = () => {
           setLoading(false);
         })
         .catch(() =>
-          toast.warn('something went wrong, please reload', {
-            position: toast.POSITION.BOTTOM_RIGHT,
-          })
+          toast.warn(
+            'something went wrong with the favorites..., please reload',
+            {
+              position: toast.POSITION.BOTTOM_RIGHT,
+            }
+          )
         );
   }, [favorites, available]);
   return (

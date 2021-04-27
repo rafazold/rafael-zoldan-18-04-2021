@@ -21,6 +21,9 @@ export const setIdFromLocation = (location) => (dispatch) => {
       });
     })
     .catch(() => {
+      toast.warn('please try again later', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
       return dispatch({
         type: actionTypes.SET_CURRENT_CITY,
         payload: { id: '215854', name: 'Tel-Aviv' },
@@ -51,7 +54,7 @@ export const setCurrentLocationWeather = (locationId, locationName) => (
       dispatch(addAvailableCity(locationWeather));
     })
     .catch(() =>
-      toast.warn('Something went wrong, please reload', {
+      toast.warn("We couldn't get the current weather, try again later", {
         position: toast.POSITION.BOTTOM_RIGHT,
       })
     );
@@ -79,8 +82,8 @@ export const setLocationForecast = (location) => (dispatch) => {
       });
     })
     .catch(() =>
-      toast.success('Please try again and reload...', {
-        position: toast.POSITION.TOP_CENTER,
+      toast.success("Couldn't get location data...", {
+        position: toast.POSITION.BOTTOM_RIGHT,
       })
     );
 };

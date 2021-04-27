@@ -39,9 +39,9 @@ const Home = () => {
                   label: option.LocalizedName,
                 }))
               )
-              .catch(() =>
-                toast.error('Please try another search', {
-                  position: toast.POSITION.TOP_CENTER,
+              .catch((e) =>
+                toast.error('Please try another search' + e, {
+                  position: toast.POSITION.BOTTOM_RIGHT,
                 })
               )
           );
@@ -49,7 +49,7 @@ const Home = () => {
       });
     } else {
       toast.info('Only English characters please...', {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
     }
   };
