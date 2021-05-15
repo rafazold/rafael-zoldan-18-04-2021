@@ -12,15 +12,15 @@ export const setIdFromLocation = (location) => (dispatch) => {
       },
     })
     .then((res) => {
-      const id = res.data[0].Key;
-      const name = res.data[0].EnglishName;
+      const id = res.data.Key;
+      const name = res.data.EnglishName;
       locatedCity = { id, name };
       return dispatch({
         type: actionTypes.SET_CURRENT_CITY,
         payload: locatedCity,
       });
     })
-    .catch(() => {
+    .catch((err) => {
       toast.warn('please try again later', {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
