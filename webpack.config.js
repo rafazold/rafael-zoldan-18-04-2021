@@ -1,4 +1,4 @@
-require('dotenv/config');
+// require('dotenv/config');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
@@ -9,6 +9,7 @@ const publicPath = process.env.PUBLIC_PATH || '/';
 const context = resolve(__dirname, 'src');
 
 module.exports = {
+  target: ['web', 'es5'],
   output: {
     publicPath,
     path: resolve(__dirname, 'dist/'),
